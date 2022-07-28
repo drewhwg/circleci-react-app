@@ -102,47 +102,47 @@ jobs:
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
-  lint:
-    docker:
-      - image: circleci/node:12.9.1-browsers
-    working_directory: ~/repo
-    steps:
-      - checkout
+  # lint:
+  #   docker:
+  #     - image: circleci/node:12.9.1-browsers
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: yarn lint
+  #     - restore_cache:
+  #         keys:
+  #           - v1-dependencies-{{ checksum "package.json" }}
+  #           # fallback to using the latest cache if no exact match is found
+  #           - v1-dependencies-
+  #     - run: yarn lint
 
-      - save_cache:
-          paths:
-            - node_modules
-            - ~/.npm
-            - ~/.cache
-          key: v1-dependencies-{{ checksum "package.json" }}
+  #     - save_cache:
+  #         paths:
+  #           - node_modules
+  #           - ~/.npm
+  #           - ~/.cache
+  #         key: v1-dependencies-{{ checksum "package.json" }}
 
-  size:
-    docker:
-      - image: circleci/node:12.9.1-browsers
-    working_directory: ~/repo
-    steps:
-      - checkout
+  # size:
+  #   docker:
+  #     - image: circleci/node:12.9.1-browsers
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: yarn size
+  #     - restore_cache:
+  #         keys:
+  #           - v1-dependencies-{{ checksum "package.json" }}
+  #           # fallback to using the latest cache if no exact match is found
+  #           - v1-dependencies-
+  #     - run: yarn size
 
-      - save_cache:
-          paths:
-            - node_modules
-            - ~/.npm
-            - ~/.cache
-          key: v1-dependencies-{{ checksum "package.json" }}
+  #     - save_cache:
+  #         paths:
+  #           - node_modules
+  #           - ~/.npm
+  #           - ~/.cache
+  #         key: v1-dependencies-{{ checksum "package.json" }}
 
   test:
     docker:
@@ -211,19 +211,19 @@ workflows:
   ci-wf:
     jobs:
       - install
-      - lint:
-          requires:
-            - install
-      - size:
-          requires:
-            - install
+      # - lint:
+      #     requires:
+      #       - install
+      # - size:
+      #     requires:
+      #       - install
       - test:
           requires:
             - install
       - build:
           requires:
-            - lint
-            - size
+            # - lint
+            # - size
             - test
       - deploy:
           requires:
