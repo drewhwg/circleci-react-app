@@ -1,3 +1,4 @@
+// Minh Quang Hoang - Cao Minh Nguyen
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
