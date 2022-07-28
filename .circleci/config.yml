@@ -80,7 +80,7 @@
 
 version: 2.1
 orbs:
-  aws-s3: circleci/aws-s3@1.0.11
+  aws-s3: circleci/aws-s3@3.0.0
 jobs:
   install:
     docker:
@@ -146,7 +146,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: cimg/node:18.7.0
     working_directory: ~/repo
     steps:
       - checkout
@@ -167,7 +167,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: cimg/node:18.7.0
     working_directory: ~/repo
     steps:
       - checkout
@@ -188,7 +188,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: cimg/node:18.7.0
     working_directory: ~/repo
     steps:
       - checkout
