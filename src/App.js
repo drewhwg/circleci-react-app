@@ -18,6 +18,8 @@ function App() {
         >
           Learn React
         </a>
+        <p>DevOps Demo app</p>
+        <p>Minh Quang Hoang and Cao Minh Nguyen</p>
       </header>
     </div>
   );
