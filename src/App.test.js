@@ -11,6 +11,6 @@ it('renders without crashing', () => {
 });
 
 it('sums numbers', () => {
-  expect(sum(2, 3)).toEqual(5);
+  expect(sum(2, 3)).toEqual(6);
   expect(sum(2, 2)).toEqual(4);
 });
