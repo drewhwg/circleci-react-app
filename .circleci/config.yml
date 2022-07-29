@@ -63,8 +63,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: yarn test
+        
       - store_test_results:
-          path: test-results
+          path: ~/test-results
           
       - save_cache:
           paths:
@@ -72,7 +73,11 @@ jobs:
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
-  
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
   deploy:
     docker:
