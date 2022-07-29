@@ -124,7 +124,7 @@ workflows:
       - install
       - build:
           requires:
-            - test
+            - install
       - test:
           requires:
             - build
