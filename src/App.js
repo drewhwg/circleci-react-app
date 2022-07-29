@@ -10,6 +10,7 @@ function App() {
         <p>
           This is a React demo app to test CI/CD Pipeline
         </p>
+        <p>This project use GitHub - CircleCI - AWS stack for CI/CD Pipeline</p>
         <p>Minh Quang Hoang and Cao Minh Nguyen</p>
       </header>
     </div>
